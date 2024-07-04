@@ -17,10 +17,10 @@ class Notion:
 class Enrollment(Notion):
     def __init__(self, _sum, _data, _method):
         super().__init__(_sum, _data, _method)
-        self.type = Enrollment
+        self.type = "enrollment"
 
 
 class Withdrawal(Notion):
     def __init__(self, _sum, _data, _method):
         super().__init__(_sum, _data, _method)
-        self.type = Withdrawal
+        self.type = "withdrawal"
