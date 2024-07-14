@@ -1,24 +1,20 @@
-from datetime import date
+from datetime import datetime
 import dates
+from store.mixins import RelationMixin
+from store.notions import Notion
 
 
-class Controller:
-    def __init__(self):
-        self.children = []
+class Controller(RelationMixin):
+    child_class = dates.Month
+    target_class = Notion
 
-    def add_notion(self, notion):
-        current_date = date.today()
-        month_date = current_date.month
-        month = self.get_or_create(month_date)
+    def create_target(self, *args, **kwargs):
+        current_datetime = datetime.now()
 
+        parent = self
+        while hasattr(parent, "get_or_create"):
+            child = parent.get_or_create(current_datetime)
+            parent = child
 
-    def create_month(self):
-        month = dates.Month()
-        self.notions.append(month)
-        return month
-
-    def get_or_create(self, month):
-        for notion in self.notions:
-            if notion.date == month:
-                return notion
-        return self.create_month()
+        parent.__init__(*args, **kwargs)
+        return parent
