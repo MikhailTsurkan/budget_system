@@ -1,0 +1,19 @@
+{
+  "metadata": {
+    "current_id": 3
+  },
+  "notions": [
+    {
+      "id": 1,
+      "_datetime": "2024.07.25-19:22:30",
+      "_sum": 1000,
+      "_method": "cash"
+    },
+    {
+      "id": 2,
+      "_datetime": "2024.07.25-19:25:00",
+      "_sum": 1000,
+      "_method": "cash"
+    }
+  ]
+}

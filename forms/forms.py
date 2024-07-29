@@ -1,0 +1,2 @@
+class InputForm:
+    pass
